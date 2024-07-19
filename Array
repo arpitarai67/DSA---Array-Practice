@@ -1,0 +1,23 @@
+//second largest element in array
+
+class Solution {
+    public int print2largest(List<Integer> arr) {
+        if(arr.size()<2 || arr==null){
+            return -1;
+        }
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for(int i =0; i<arr.size(); i++){
+            if(arr.get(i)>max){
+                secondMax = max;
+                max = arr.get(i);
+            }else{
+                if(arr.get(i)>secondMax && arr.get(i)<max){
+                    secondMax = arr.get(i);
+                }
+            }
+            
+        }
+        return secondMax;
+    }
+}
