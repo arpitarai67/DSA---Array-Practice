@@ -1,0 +1,49 @@
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> resultSet = new HashSet<>();
+
+        for(int num : nums1){
+            set1.add(num);
+        }
+        for(int num : nums2){
+            if(set1.contains(num)){
+                resultSet.add(num);
+            } 
+        }
+        int[] res = new int[resultSet.size()];
+        int i =0;
+        for(int num : resultSet){
+            res[i++] = num;
+        }
+        return res;
+        
+    }
+}
+
+static ArrayList<Integer> printIntersection(int arr1[], int arr2[], int n, int m) 
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+        int i = 0;
+        int j =0; 
+        if(arr1.length==0 || arr2.length==0){
+            list.add(-1);
+            return list;
+        }
+        while(i<arr1.length && j<arr2.length){
+            if(arr1[i]<arr2[j]){
+                i++;
+            }else if(arr2[j]<arr1[i]){
+                j++;
+            }else{
+                if(!list.contains(arr1[i])){
+                    list.add(arr1[i]);
+                }
+                i++;
+                j++;
+                
+            }
+            
+        }
+        return list;
+    }
